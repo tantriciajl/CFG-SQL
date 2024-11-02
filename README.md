@@ -1,2 +1,2 @@
 # CFG-SQL
-Code First Girls Data &amp; SQL Kickstarter
+A compilation the work produced during the Code First Girls (CFG) Data &amp; SQL Kickstarter course
