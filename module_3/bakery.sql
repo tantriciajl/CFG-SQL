@@ -1,0 +1,132 @@
+-- CREATE DATABASE bakery;
+
+-- create tables
+USE bakery;
+
+CREATE TABLE sweet
+(id INTEGER NOT NULL,
+item_name VARCHAR(50),
+price FLOAT(2));
+
+CREATE TABLE savoury
+(id INTEGER NOT NULL,
+item_name VARCHAR(50),
+price DECIMAL(5,2),
+main_ingredient VARCHAR(50));
+
+-- insert data into tables
+INSERT INTO sweet
+(id, item_name, price)
+VALUES
+(1, 'doughnut', 0.5),
+(2, 'croissant', 0.75),
+(3, 'painauchocolat', 0.55),
+(4, 'cinnamon twirl', 0.45),
+(5, 'cannoli', 0.88),
+(6, 'apple tart', 1.12);
+
+INSERT INTO savoury
+(id, item_name, price, main_ingredient)
+VALUES
+(1, 'meat pie', 1.25, 'pork'),
+(2, 'sausage roll', 1, NULL),
+(3, 'pasty', 2.45, 'beef');
+
+-- view columns from the tables
+SELECT *
+FROM sweet;
+
+SELECT
+sa.item_name,
+sa.price
+FROM savoury sa;
+
+USE BAKERY;
+
+SELECT * FROM SAVOURY;
+
+USE BAKERY;
+
+SELECT * FROM SAVOURY;
+
+SELECT *
+FROM SAVOURY S
+WHERE S.MAIN_INGREDIENT = 'PORK' 
+OR S.MAIN_INGREDIENT = 'BEEF';
+
+SELECT * 
+FROM SWEET S
+WHERE S.PRICE <= 0.50;
+
+SELECT S.ITEM_NAME, S.PRICE
+FROM SWEET S
+WHERE S.ITEM_NAME <> 'CANNOLI';
+
+SELECT * 
+FROM SWEET S 
+WHERE S.PRICE
+BETWEEN 0.5 AND 1.0;
+
+SELECT *
+FROM SWEET S
+WHERE S.PRICE NOT BETWEEN 0.5 AND 1.0;
+
+SELECT * 
+FROM SWEET S 
+WHERE S.PRICE > 0.5 AND S.PRICE < 1.0;
+
+SELECT * FROM SWEET;
+
+SELECT * 
+FROM SWEET S
+WHERE S.ITEM_NAME LIKE '______A%';
+
+SELECT *
+FROM SWEET S
+WHERE S.ITEM_NAME 
+LIKE '%T';
+
+SELECT *
+FROM SWEET S
+WHERE S.ITEM_NAME
+LIKE '%AN%';
+
+SELECT *
+FROM SWEET S
+WHERE S.ITEM_NAME
+LIKE 'C_______%';
+
+SELECT *
+FROM SWEET S
+WHERE S.ITEM_NAME
+LIKE 'A%T';
+
+SELECT * 
+FROM SWEET S
+WHERE S.ITEM_NAME
+IN('APPLE TART', 'CANNOLI');
+
+SELECT *
+FROM SWEET S
+WHERE S.ID IS NULL;
+
+SELECT *
+FROM SWEET S
+WHERE S.ID IS NOT NULL;
+
+SELECT S.ITEM_NAME
+FROM  SWEET  S 
+WHERE S.ITEM_NAME
+LIKE 'c%';
+
+SELECT *
+FROM SAVOURY;
+
+SELECT *
+FROM SAVOURY S
+WHERE S.PRICE > 1.0 AND S.PRICE < 3.0;
+
+SELECT *
+FROM SAVOURY S
+WHERE S.PRICE BETWEEN 1 AND 3;
+
